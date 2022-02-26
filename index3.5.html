@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function App() {
+            const [Minutes, setMinutes] =React.useState(0)
+            //useSate에 () 안에 비어있으면 console에서 에러가 뜸
+            const Change =(event) => {
+                setMinutes(event.target.value)
+            }
+            return (
+                <div>
+                    <h1>Super Converter</h1>
+                    <label htmlFor="Minutes">Minutes</label>
+                    <input value={Minutes} id="Minutes" placeholder="Minutes" type="number" onChange={Change}/>
+                    <h4>You want to convert {Minutes}</h4>
+                    <label htmlFor="Hours">Hours</label>
+                    <input id="Hours" placeholder="Hours" type="number"/>
+                </div>
+            )
+        }
+        ReactDOM.render(<App />,root)
+    </script>
+</html>
